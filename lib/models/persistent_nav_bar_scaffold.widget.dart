@@ -435,18 +435,7 @@ class _TabSwitchingViewState extends State<_TabSwitchingView>
                   node: tabFocusNodes[index],
                   child: Builder(
                       builder: (final context) => shouldBuildTab[index]
-                          ? (widget.screenTransitionAnimation!
-                                  .animateTabTransition
-                              ? AnimatedBuilder(
-                                  animation: _animations[index]!,
-                                  builder: (final context, final child) =>
-                                      Transform.translate(
-                                    offset:
-                                        Offset(_animations[index]!.value, 0),
-                                    child: widget.tabBuilder(context, index),
-                                  ),
-                                )
-                              : widget.tabBuilder(context, index))
+                          ? widget.tabBuilder(context, index)
                           : Container()),
                 ),
               ),
